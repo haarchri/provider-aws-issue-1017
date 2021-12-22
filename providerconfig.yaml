@@ -1,0 +1,16 @@
+apiVersion: aws.crossplane.io/v1beta1
+kind: ProviderConfig
+metadata:
+  name: default
+spec:
+  credentials:
+    secretRef:
+      namespace: crossplane-system
+      name: aws-creds
+      key: creds
+    source: Secret
+  endpoint:
+    hostnameImmutable: true
+    url:
+      static: http://127.0.0.1:4566
+      type: Static
